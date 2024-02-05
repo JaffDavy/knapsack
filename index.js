@@ -1,4 +1,4 @@
-let knapsack = {
+const knapsack = {
   capacity: 0,
   items: [],
   weight: 0,
@@ -25,7 +25,7 @@ const allItems = [
   { name: 'Hiking Shoes', weight: 2, value: 120 },
   { name: 'First Aid Kit', weight: 2, value: 110 },
   { name: 'Sleeping Bag', weight: 4, value: 200 },
-  { name: 'Tent', weight: 5, value: 250 },
+  { name: 'Tent', weight: 5, value: 250 }
 
 ]
 
@@ -47,10 +47,10 @@ function addItemToKnapsack () {
   }
 
   const selectedItem = allItems.find(item => item.name === document.getElementById('itemList').value)
-    if (!selectedItem) {
-      alert('Please select an item from the list.')
-      return;
-    }
+  if (!selectedItem) {
+    alert('Please select an item from the list.')
+    return
+  }
 
   knapsack.capacity = maxWeight
 
@@ -63,10 +63,11 @@ function addItemToKnapsack () {
     alert('Cannot add the selected item. It exceeds the knapsack capacity.')
   }
 }
+addItemToKnapsack()
 
 function completeKnapsack () {
-    updateKnapsackState()
-    alert('Knapsack completed. Check the state below.')
+  updateKnapsackState()
+  alert('Knapsack completed. Check the state below.')
 }
 
 function updateKnapsackState () {
@@ -79,6 +80,7 @@ function updateKnapsackState () {
   `
   knapsackState.style.color = knapsack.weight <= knapsack.capacity ? 'green' : 'red'
 }
+completeKnapsack()
 
 // Initialize the item list on page load
 initializeItemList()
